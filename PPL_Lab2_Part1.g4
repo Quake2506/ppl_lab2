@@ -1,4 +1,4 @@
-grammar PPL_Lab2;
+grammar PPL_Lab2_Part1;
 
 
 prog: expression* EOF;
@@ -7,7 +7,7 @@ prog: expression* EOF;
 expression
     : operand
     | operand operator operand
-    | '(' expression ')';
+    ;
 
 operator
     : Add
