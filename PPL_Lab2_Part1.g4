@@ -5,8 +5,8 @@ prog: expression* EOF;
 /** The start rule; begin parsing here. */
 
 expression
-    : operand
-    | operand operator operand
+    : operand (operator operand)*
+    | bool_expr (bool_operator bool_expr)*
     ;
 
 operator
@@ -14,15 +14,14 @@ operator
     | Sub
     | Mul
     | Div
-    | And
-    | Or
-    | Not
     ;
 
+bool_operator: And | Or | Not;
 operand: Id | Int | Bool;
+bool_expr: Id | Bool;
 Int: '0' | [1-9]+ [0-9]*;
 Bool: 'true' | 'false';
-Id: [a-z] [a-zA-Z]*;
+Id: [a-zA-Z]+;
 
 /* OPERATORS */
 Add: '+';

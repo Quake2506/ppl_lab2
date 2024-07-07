@@ -23,7 +23,7 @@ operator
 operand: Id | Int | Bool | '(' expression ')';
 Int: '0' | [1-9]+ [0-9]*;
 Bool: 'true' | 'false';
-Id: [a-z] [a-zA-Z]*;
+Id: [a-zA-Z0-9_]+;
 
 /* OPERATORS */
 Add: '+';
